@@ -1,6 +1,5 @@
 package com.emmizo.dto;
 
-
 import lombok.Data;
 
 import java.time.LocalTime;
