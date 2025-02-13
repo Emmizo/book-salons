@@ -111,10 +111,8 @@ public class BookingServiceImpl implements BookingService {
     }
 
     private boolean isSameDate(LocalDateTime dateTime, LocalDate date) {
-
      return dateTime.toLocalDate().isEqual(date);
     }
-
 
     @Override
     public SalonReport getSalonReport(Long salonId) {

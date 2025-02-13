@@ -1,5 +1,6 @@
 package com.emmizo.controller;
 
+import com.emmizo.domain.BookingStatus;
 import com.emmizo.dto.*;
 import com.emmizo.mapper.BookingMapper;
 import com.emmizo.modal.Booking;
@@ -56,15 +57,23 @@ public class BookingController {
          return ResponseEntity.ok(getBookingsDTOs(bookings));
     }
     private Set<BookingDTO> getBookingsDTOs(List<Booking> bookings) {
-         return bookings.stream().map(booking->{
-             return BookingMapper.toBookingDTO(booking);
-         }).collect(Collectors.toSet());
+         return bookings.stream().map(BookingMapper::toBookingDTO).collect(Collectors.toSet());
     }
 
     @GetMapping("/{bookingId}")
     public ResponseEntity<BookingDTO> getBookingsById(@PathVariable Long bookingId) throws Exception {
 
        Booking bookings = bookingService.getBookingById(1L);
+
+        return ResponseEntity.ok(BookingMapper.toBookingDTO(bookings));
+    }
+    @GetMapping("/{bookingId}/status")
+    public ResponseEntity<BookingDTO> updateBookingsStatus(
+            @PathVariable Long bookingId,
+            @RequestParam BookingStatus status
+    ) throws Exception {
+
+        Booking bookings = bookingService.updateBooking(bookingId, status);
 
         return ResponseEntity.ok(BookingMapper.toBookingDTO(bookings));
     }
