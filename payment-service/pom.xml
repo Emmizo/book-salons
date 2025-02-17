@@ -60,6 +60,25 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>com.razorpay</groupId>
+			<artifactId>razorpay-java</artifactId>
+			<version>1.4.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.stripe</groupId>
+			<artifactId>stripe-java</artifactId>
+			<version>28.3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.egzosn</groupId>
+			<artifactId>pay-java-paypal</artifactId>
+			<version>2.14.6</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
