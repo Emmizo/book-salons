@@ -38,11 +38,11 @@ public class PaymentController {
         PaymentOrder res = paymentService.getPaymentOrderById(paymentOrderId);
         return ResponseEntity.ok(res);
     }
-    @PatchMapping("/{proceed}")
+    @PatchMapping("/proceed")
     public ResponseEntity<Boolean> proceedPayment(
             @RequestParam String paymentId,
             @RequestParam String paymentLinkId
-    ) throws Exception {
+           ) throws Exception {
 
         PaymentOrder paymentOrder= paymentService.getPaymentOrderByPaymentId(paymentLinkId);
         Boolean res = paymentService.proceedPayment(paymentOrder,paymentId,paymentLinkId);
